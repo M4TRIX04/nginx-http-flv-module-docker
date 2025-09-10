@@ -55,7 +55,7 @@ ENV HTTP_FLV_MODULE=${HTTP_FLV_MODULE}
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories\
     && apk update \
-    && apk add --no-cache pcre-dev zlib-dev openssl openssl-dev gettext
+    && apk add --no-cache pcre-dev zlib-dev openssl openssl-dev gettext ffmpeg
 
 COPY --from=build-nginx /usr/local/nginx /usr/local/nginx
 COPY --from=build-nginx /etc/nginx /etc/nginx
