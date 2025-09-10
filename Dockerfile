@@ -1,4 +1,4 @@
-ARG NGINX_VERSION=1.26.3
+ARG NGINX_VERSION=1.28.0
 ARG NGINX_HTTP_FLV_MODULE=1.2.12
 ARG HTTP_PORT=80
 ARG HTTPS_PORT=443
@@ -48,20 +48,20 @@ ARG HTTPS_PORT
 ARG RTMP_PORT
 ARG HTTP_FLV_MODULE
 
-ENV HTTP_PORT ${HTTP_PORT}
-ENV HTTPS_PORT ${HTTPS_PORT}
-ENV RTMP_PORT ${RTMP_PORT}
-ENV HTTP_FLV_MODULE ${HTTP_FLV_MODULE}
+ENV HTTP_PORT=${HTTP_PORT}
+ENV HTTPS_PORT=${HTTPS_PORT}
+ENV RTMP_PORT=${RTMP_PORT}
+ENV HTTP_FLV_MODULE=${HTTP_FLV_MODULE}
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories\
     && apk update \
-    && apk add --no-cache pcre-dev zlib-dev openssl openssl-dev gettext ffmpeg
+    && apk add --no-cache pcre-dev zlib-dev openssl openssl-dev gettext
 
 COPY --from=build-nginx /usr/local/nginx /usr/local/nginx
 COPY --from=build-nginx /etc/nginx /etc/nginx
 
 # Add NGINX path, config and static files.
-ENV PATH "${PATH}:/usr/local/nginx/sbin"
+ENV PATH="${PATH}:/usr/local/nginx/sbin"
 RUN mkdir -p /opt/data && mkdir /www && mkdir -p /usr/local/nginx/rtmp
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY stat.xsl /usr/local/nginx/rtmp/stat.xsl
