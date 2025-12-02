@@ -3,7 +3,6 @@ ARG NGINX_HTTP_FLV_MODULE=1.2.12
 ARG HTTP_PORT=80
 ARG HTTPS_PORT=443
 ARG RTMP_PORT=1935
-ARG HTTP_FLV_MODULE=9000
 
 ###################################################
 # Build this NGINX-build image.
@@ -46,12 +45,10 @@ FROM alpine:latest
 ARG HTTP_PORT
 ARG HTTPS_PORT
 ARG RTMP_PORT
-ARG HTTP_FLV_MODULE
 
 ENV HTTP_PORT=${HTTP_PORT}
 ENV HTTPS_PORT=${HTTPS_PORT}
 ENV RTMP_PORT=${RTMP_PORT}
-ENV HTTP_FLV_MODULE=${HTTP_FLV_MODULE}
 
 RUN \
     apk update \
@@ -70,6 +67,5 @@ COPY stat.xsl /usr/local/nginx/rtmp/stat.xsl
 EXPOSE 80
 EXPOSE 443
 EXPOSE 1935
-EXPOSE 9000
 
 CMD ["nginx", "-g", "daemon off;"]
