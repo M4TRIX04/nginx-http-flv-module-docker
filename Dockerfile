@@ -14,8 +14,8 @@ ARG NGINX_HTTP_FLV_MODULE
 WORKDIR /workspace
 
 # Get nginx and Get nginx-http-flv-module
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories\
-  && apk update \
+RUN \
+  apk update \
   && apk add --no-cache g++ pcre-dev zlib-dev make openssl openssl-dev\
   && wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz\
   && tar -zxvf nginx-${NGINX_VERSION}.tar.gz\
@@ -53,8 +53,8 @@ ENV HTTPS_PORT=${HTTPS_PORT}
 ENV RTMP_PORT=${RTMP_PORT}
 ENV HTTP_FLV_MODULE=${HTTP_FLV_MODULE}
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories\
-    && apk update \
+RUN \
+    apk update \
     && apk add --no-cache pcre-dev zlib-dev openssl openssl-dev gettext ffmpeg
 
 COPY --from=build-nginx /usr/local/nginx /usr/local/nginx
