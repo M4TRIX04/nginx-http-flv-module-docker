@@ -18,7 +18,7 @@
   ```  
 2. Using OBS and other software to push streams  
   ```
-  Server: rtmp://127.0.0.1:1935/live
+  Server: rtmp://127.0.0.1:1935/stream
   Secret Key: key
   ```  
   ![image](./static/1.OBS.gif)  
