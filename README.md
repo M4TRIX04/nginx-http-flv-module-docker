@@ -35,7 +35,7 @@
 # Serve
 rtmp://127.0.0.1:1935/stream
 #streamkey
-key
+streamkey
 ```
 ##### Play
 ```
