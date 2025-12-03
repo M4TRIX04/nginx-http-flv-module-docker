@@ -14,17 +14,17 @@
 ### Use
 1. Run container  
   ```bash
-  docker run --name flv -p 1935:1935 -p 8080:80 -itd lliuhuan/nginx-http-flv-module
+  docker run --name flv -p 1935:1935 -p 80:80 -itd zeddo/nginx-http-flv-module
   ```  
 2. Using OBS and other software to push streams  
   ```
-  Server: rtmp://127.0.0.1:1935/stream
-  Secret Key: t55
+  Server: rtmp://127.0.0.1:1935/live
+  Secret Key: key
   ```  
   ![image](./static/1.OBS.gif)  
 3. Play using IINA or other HTTP video playback tools  
   ```
-  http://localhost:8080/stream?app=stream&stream=t55
+  http://localhost/live?app=stream&stream=key
   ```
 ![image](./static/2.IINA.gif)  
 
