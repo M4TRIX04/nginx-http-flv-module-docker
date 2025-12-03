@@ -19,12 +19,12 @@
 2. Using OBS and other software to push streams  
   ```
   Server: rtmp://127.0.0.1:1935/stream
-  Secret Key: key
+  Secret Key: streamkey
   ```  
   ![image](./static/1.OBS.gif)  
 3. Play using IINA or other HTTP video playback tools  
   ```
-  http://localhost/live?app=stream&stream=key
+  http://localhost/live?app=stream&stream=streamkey
   ```
 ![image](./static/2.IINA.gif)  
 
@@ -39,7 +39,7 @@ key
 ```
 ##### Play
 ```
-http://127.0.0.1/live?app=stream&stream=[key]
+http://127.0.0.1/live?app=stream&stream=[streamkey]
 ```
 
 #### HLS method
@@ -48,11 +48,11 @@ http://127.0.0.1/live?app=stream&stream=[key]
 # Serve
 rtmp://127.0.0.1:1935/hls
 #streamkey
-key
+streamkey
 ```
 ##### Play
 ```
-http://localhost/hls/[key].m3u8
+http://localhost/hls/[streamkey].m3u8
 ```
 
 #### DASH method
@@ -61,11 +61,11 @@ http://localhost/hls/[key].m3u8
 # Serve
 rtmp://127.0.0.1:1935/dash
 #streamkey
-key
+streamkey
 ```
 ##### Play
 ```
-http://localhost/dash/[key].mpd
+http://localhost/dash/[streamkey].mpd
 ```
 
 #### Monitoring
