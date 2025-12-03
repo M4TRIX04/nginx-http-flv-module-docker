@@ -52,7 +52,7 @@ key
 ```
 ##### Play
 ```
-http://localhost/hls/[streamname].m3u8
+http://localhost/hls/[key].m3u8
 ```
 
 #### DASH method
@@ -65,7 +65,7 @@ key
 ```
 ##### Play
 ```
-http://localhost/dash/[streamname].mpd
+http://localhost/dash/[key].mpd
 ```
 
 #### Monitoring
