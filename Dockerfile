@@ -14,7 +14,7 @@ WORKDIR /workspace
 
 # Get nginx and Get nginx-http-flv-module
 RUN \
-  apk update \
+  apk update\
   && apk add --no-cache g++ pcre-dev zlib-dev make openssl openssl-dev\
   && wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz\
   && tar -zxvf nginx-${NGINX_VERSION}.tar.gz\
@@ -59,9 +59,9 @@ COPY --from=build-nginx /etc/nginx /etc/nginx
 
 # Add NGINX path, config and static files.
 ENV PATH="${PATH}:/usr/local/nginx/sbin"
-RUN mkdir -p /opt/data && mkdir /www && mkdir -p /usr/local/nginx/rtmp
+RUN mkdir -p /usr/local/nginx/html/rtmp
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY stat.xsl /usr/local/nginx/rtmp/stat.xsl
+COPY stat.xsl /usr/local/nginx/html/rtmp/stat.xsl
 # COPY static /www/static
 
 EXPOSE 80
