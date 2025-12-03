@@ -39,7 +39,7 @@ key
 ```
 ##### Play
 ```
-http://127.0.0.1:8080/stream?app=stream&stream=[streamname]
+http://127.0.0.1/live?app=stream&stream=[key]
 ```
 
 #### HLS method
