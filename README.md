@@ -19,7 +19,7 @@
 2. Using OBS and other software to push streams  
   ```
   Server: rtmp://127.0.0.1:1935/stream
-  Secret Key: streamkey
+  Stream Key: streamkey
   ```  
   ![image](./static/1.OBS.gif)  
 3. Play using IINA or other HTTP video playback tools  
